@@ -120,46 +120,31 @@
 	});
 </script>
 
-<h1>Play against Forko</h1>
+<div class="flex flex-col items-center py-12">
+	<h1 class="text-5xl font-extrabold mb-10 bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent tracking-tight">
+		Play against Forko
+	</h1>
 
-<div class="controls">
-	<button onclick={resetGame} disabled={isThinking}>Reset Board</button>
-	{#if isThinking}
-		<span class="indicator">Thinking...</span>
-	{/if}
+	<div class="flex items-center gap-6 mb-8 h-12">
+		<button
+			class="px-6 py-2.5 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 rounded-lg font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-blue-500/25"
+			onclick={resetGame}
+			disabled={isThinking}
+		>
+			Reset Board
+		</button>
+		{#if isThinking}
+			<div class="flex items-center gap-2 text-amber-400 font-medium animate-pulse">
+				<div class="w-2 h-2 bg-amber-400 rounded-full animate-bounce"></div>
+				Thinking...
+			</div>
+		{/if}
+	</div>
+
+	<div class="p-1 bg-gradient-to-br from-neutral-700 to-neutral-800 rounded-lg shadow-2xl shadow-black/50">
+		<div class="bg-neutral-800 rounded-[4px] overflow-hidden">
+			<div bind:this={boardContainer} class="w-[500px] h-[500px]"></div>
+		</div>
+	</div>
 </div>
 
-<div class="board-wrapper">
-	<div bind:this={boardContainer} class="chessground-board"></div>
-</div>
-
-<style>
-	.controls {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 1rem;
-		margin-bottom: 1rem;
-	}
-
-    button {
-        padding: 0.5rem 1rem;
-        cursor: pointer;
-    }
-
-	.indicator {
-		font-weight: bold;
-		color: #e67e22;
-	}
-
-	.board-wrapper {
-		display: flex;
-		justify-content: center;
-		margin-top: 1rem;
-	}
-
-	.chessground-board {
-		width: 500px;
-		height: 500px;
-	}
-</style>
