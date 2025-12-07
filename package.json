@@ -36,7 +36,8 @@
 		"vite": "^7.2.2"
 	},
 	"dependencies": {
+		"chess.js": "1.4.0",
 		"chessground": "9.2.1",
-		"forko": "file:../2025-11-forko-chess-engine/pkg"
+		"forko": "file:./src/lib/forko"
 	}
 }
