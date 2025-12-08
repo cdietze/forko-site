@@ -7,6 +7,7 @@
 	import 'chessground/assets/chessground.base.css';
 	import 'chessground/assets/chessground.brown.css';
 	import 'chessground/assets/chessground.cburnett.css';
+	import logo from '$lib/assets/forko-logo.svg';
 
 	let boardContainer: HTMLElement;
 	let cg: any;
@@ -121,13 +122,20 @@
 </script>
 
 <div class="flex flex-col items-center py-12">
-	<h1 class="text-5xl font-extrabold mb-10 bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent tracking-tight">
+	<img src={logo} alt="Forko" class="w-24 h-24 mb-6 drop-shadow-[0_0_15px_rgba(96,165,250,0.5)] bg-slate-700 rounded-lg" />
+	<h1 class="text-5xl font-extrabold mb-10 pb-2 bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent tracking-tight leading-normal">
 		Play against Forko
 	</h1>
 
-	<div class="flex items-center gap-6 mb-8 h-12">
+	<div class="w-full max-w-[500px] p-1 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg shadow-2xl shadow-black/50">
+		<div class="bg-slate-800 rounded-[4px] overflow-hidden">
+			<div bind:this={boardContainer} class="w-full aspect-square"></div>
+		</div>
+	</div>
+
+	<div class="flex items-center gap-6 mt-8 h-12">
 		<button
-			class="px-6 py-2.5 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 rounded-lg font-semibold transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-blue-500/25"
+			class="px-6 py-2.5 bg-slate-800 hover:bg-slate-700 active:bg-slate-600 text-slate-300 hover:text-white rounded-lg font-medium transition-all shadow-lg shadow-black/20 disabled:opacity-50 disabled:cursor-not-allowed"
 			onclick={resetGame}
 			disabled={isThinking}
 		>
@@ -139,12 +147,6 @@
 				Thinking...
 			</div>
 		{/if}
-	</div>
-
-	<div class="w-full max-w-[500px] p-1 bg-gradient-to-br from-neutral-700 to-neutral-800 rounded-lg shadow-2xl shadow-black/50">
-		<div class="bg-neutral-800 rounded-[4px] overflow-hidden">
-			<div bind:this={boardContainer} class="w-full aspect-square"></div>
-		</div>
 	</div>
 </div>
 

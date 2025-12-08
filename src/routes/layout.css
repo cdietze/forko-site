@@ -1,7 +1,11 @@
 @import 'tailwindcss';
 
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
 @layer base {
     html, body {
-        @apply bg-neutral-950;
+        @apply bg-slate-950;
     }
 }
