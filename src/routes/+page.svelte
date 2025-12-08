@@ -141,9 +141,9 @@
 		{/if}
 	</div>
 
-	<div class="p-1 bg-gradient-to-br from-neutral-700 to-neutral-800 rounded-lg shadow-2xl shadow-black/50">
+	<div class="w-full max-w-[500px] p-1 bg-gradient-to-br from-neutral-700 to-neutral-800 rounded-lg shadow-2xl shadow-black/50">
 		<div class="bg-neutral-800 rounded-[4px] overflow-hidden">
-			<div bind:this={boardContainer} class="w-[500px] h-[500px]"></div>
+			<div bind:this={boardContainer} class="w-full aspect-square"></div>
 		</div>
 	</div>
 </div>
