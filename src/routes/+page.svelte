@@ -13,6 +13,27 @@
 	let cg: any;
 	let chess = new Chess();
 	let isThinking = false;
+	let isWasmReady = false;
+	let thinkingDepth = 6;
+	const depthOptions = Array.from({ length: 10 }, (_, i) => i + 1);
+
+	function clampDepth(value: number) {
+		return Math.max(1, Math.min(10, Math.trunc(value)));
+	}
+
+	function applyDepth(value: number) {
+		thinkingDepth = clampDepth(value);
+		if (!isWasmReady) return;
+		try {
+			wasm.set_depth(thinkingDepth);
+		} catch (e) {
+			console.error('Failed to set depth:', e);
+		}
+	}
+
+	function onDepthChange(e: Event) {
+		applyDepth(Number((e.currentTarget as HTMLSelectElement).value));
+	}
 
 	function toDests(chess: Chess) {
 		const dests = new Map();
@@ -104,6 +125,8 @@
 		await wasm.default(wasmUrl);
 		console.log(`Loaded forko wasm`);
 		console.log(`Version: ${wasm.version()}`);
+		isWasmReady = true;
+		applyDepth(thinkingDepth);
 
 		if (boardContainer) {
 			cg = Chessground(boardContainer, {
@@ -147,6 +170,23 @@
 				Thinking...
 			</div>
 		{/if}
+	</div>
+
+	<div class="w-full max-w-[500px] mt-4">
+		<label for="thinking-depth" class="flex items-center justify-between gap-4 text-slate-300">
+			<span class="font-medium">Thinking depth</span>
+		</label>
+		<select
+			class="w-full mt-2 px-3 py-2 bg-slate-800 text-slate-200 rounded-md border border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-400/50 focus:border-blue-400 disabled:opacity-50 disabled:cursor-not-allowed"
+			id="thinking-depth"
+			value={thinkingDepth}
+			onchange={onDepthChange}
+			disabled={isThinking || !isWasmReady}
+		>
+			{#each depthOptions as d}
+				<option value={d}>{d}</option>
+			{/each}
+		</select>
 	</div>
 </div>
 

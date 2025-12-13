@@ -2,6 +2,7 @@
 /* eslint-disable */
 export const memory: WebAssembly.Memory;
 export const best_move: () => [number, number];
+export const set_depth: (a: number) => void;
 export const set_fen: (a: number, b: number) => void;
 export const version: () => [number, number];
 export const __wbindgen_externrefs: WebAssembly.Table;

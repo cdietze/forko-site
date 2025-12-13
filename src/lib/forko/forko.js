@@ -96,6 +96,13 @@ export function best_move() {
 }
 
 /**
+ * @param {number} depth
+ */
+export function set_depth(depth) {
+    wasm.set_depth(depth);
+}
+
+/**
  * @param {string} fen
  */
 export function set_fen(fen) {

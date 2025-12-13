@@ -3,6 +3,8 @@
 
 export function best_move(): string;
 
+export function set_depth(depth: number): void;
+
 export function set_fen(fen: string): void;
 
 export function version(): string;
@@ -12,6 +14,7 @@ export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembl
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
   readonly best_move: () => [number, number];
+  readonly set_depth: (a: number) => void;
   readonly set_fen: (a: number, b: number) => void;
   readonly version: () => [number, number];
   readonly __wbindgen_externrefs: WebAssembly.Table;
