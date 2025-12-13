@@ -146,7 +146,7 @@
 
 <div class="flex flex-col items-center py-12">
 	<img src={logo} alt="Forko" class="w-24 h-24 mb-6 drop-shadow-[0_0_15px_rgba(96,165,250,0.5)] bg-slate-700 rounded-lg" />
-	<h1 class="text-5xl font-extrabold mb-10 pb-2 bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent tracking-tight leading-normal">
+	<h1 class="text-2xl sm:text-4xl font-extrabold mb-10 pb-2 bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent tracking-tight leading-normal">
 		Play against Forko
 	</h1>
 
