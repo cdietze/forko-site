@@ -1,15 +1,15 @@
 {
-  "name": "forko",
-  "type": "module",
-  "version": "0.1.0",
-  "files": [
-    "forko_bg.wasm",
-    "forko.js",
-    "forko.d.ts"
-  ],
-  "main": "forko.js",
-  "types": "forko.d.ts",
-  "sideEffects": [
-    "./snippets/*"
-  ]
+	"name": "forko",
+	"type": "module",
+	"version": "0.1.0",
+	"files": [
+		"forko_bg.wasm",
+		"forko.js",
+		"forko.d.ts"
+	],
+	"main": "forko.js",
+	"types": "forko.d.ts",
+	"sideEffects": [
+		"./snippets/*"
+	]
 }
